@@ -11,15 +11,13 @@ class Mapa extends StatelessWidget {
 
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(64),
-        child: CustomAppBar(),
+        child: CustomAppBar(title: "Mapa"),
       ),
-
-      body: const Center(
-        child: Text(
-          "Mapa",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
+      body: const GradientBackground(
+        child: Center(
+          child: Text(
+            "Mapa",
+            style: TextStyle(color: Colors.white),
           ),
         ),
       ),

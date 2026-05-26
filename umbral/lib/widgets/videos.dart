@@ -7,19 +7,16 @@ class Videos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(64),
-        child: CustomAppBar(),
+        child: CustomAppBar(title: "Videos"),
       ),
 
-      body: const Center(
-        child: Text(
-          "Pantalla Videos",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
+      body: const GradientBackground(
+        child: Center(
+          child: Text(
+            "Pantalla Videos",
+            style: TextStyle(color: Colors.white),
           ),
         ),
       ),

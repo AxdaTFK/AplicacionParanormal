@@ -21,10 +21,12 @@ class MainApp extends StatelessWidget {
 
         appBar: const PreferredSize(
           preferredSize: Size.fromHeight(64),
-          child: CustomAppBar(),
+          child: CustomAppBar(title: "Home"),
         ),
 
-        body: const SingleChildScrollView(child: Frame33()),
+        body: const GradientBackground(
+          child: SingleChildScrollView(child: Frame33()),
+        ),
 
         bottomNavigationBar: const Bottombar(),
       ),
@@ -33,61 +35,58 @@ class MainApp extends StatelessWidget {
 }
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  final String title;
+
+  const CustomAppBar({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 64,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      color: Colors.black,
+    return SafeArea(
+      child: Container(
+        height: 64,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        color: Colors.black,
 
-      child: Row(
-        children: [
-          IconButton(
-            onPressed: () {},
+        child: Row(
+          children: [
+            IconButton(
+              onPressed: () {},
 
-            icon: const Icon(
-              Icons.menu,
-              color: Colors.white,
-              size: 28,
+              icon: const Icon(Icons.menu, color: Colors.white, size: 28),
             ),
-          ),
 
-          const Expanded(
-            child: Text(
-              "Home",
-              textAlign: TextAlign.center,
+            Expanded(
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
 
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 22,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-
-          Container(
-            width: 40,
-            height: 40,
-
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-
-              image: const DecorationImage(
-                image: NetworkImage(
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJD0biXKfRJ_mccap0d2Y3rdtobjxsUlDWsQ&s",
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
                 ),
-                fit: BoxFit.cover,
-              ),
-
-              border: Border.all(
-                color: Colors.white,
-                width: 1,
               ),
             ),
-          ),
-        ],
+
+            Container(
+              width: 40,
+              height: 40,
+
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+
+                image: const DecorationImage(
+                  image: NetworkImage(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJD0biXKfRJ_mccap0d2Y3rdtobjxsUlDWsQ&s",
+                  ),
+                  fit: BoxFit.cover,
+                ),
+
+                border: Border.all(color: Colors.white, width: 1),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -107,32 +106,22 @@ class Bottombar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
 
         children: [
-
-          // HOME
           IconButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const MainApp(),
-                ),
+                MaterialPageRoute(builder: (context) => const MainApp()),
               );
             },
 
-            icon: const Icon(
-              Icons.home,
-              color: Colors.white,
-              size: 30,
-            ),
+            icon: const Icon(Icons.home, color: Colors.white, size: 30),
           ),
 
           IconButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const Videos(),
-                ),
+                MaterialPageRoute(builder: (context) => const Videos()),
               );
             },
 
@@ -145,53 +134,35 @@ class Bottombar extends StatelessWidget {
 
           IconButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const Crear(),
-                ),
+                MaterialPageRoute(builder: (context) => const Crear()),
               );
             },
 
-            icon: const Icon(
-              Icons.add_circle,
-              color: Colors.white,
-              size: 30,
-            ),
+            icon: const Icon(Icons.add_circle, color: Colors.white, size: 30),
           ),
 
           IconButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const Mapa(),
-                ),
+                MaterialPageRoute(builder: (context) => const Mapa()),
               );
             },
 
-            icon: const Icon(
-              Icons.location_on,
-              color: Colors.white,
-              size: 30,
-            ),
+            icon: const Icon(Icons.location_on, color: Colors.white, size: 30),
           ),
 
           IconButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const Cuenta(),
-                ),
+                MaterialPageRoute(builder: (context) => const Cuenta()),
               );
             },
 
-            icon: const Icon(
-              Icons.person,
-              color: Colors.white,
-              size: 30,
-            ),
+            icon: const Icon(Icons.person, color: Colors.white, size: 30),
           ),
         ],
       ),
@@ -374,6 +345,28 @@ class StoryCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class GradientBackground extends StatelessWidget {
+  final Widget child;
+
+  const GradientBackground({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+
+          colors: [Color(0xFF0B1020), Color(0xFF293A6E)],
+        ),
+      ),
+
+      child: child,
     );
   }
 }
