@@ -11,19 +11,16 @@ class Resena extends StatelessWidget {
 
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(64),
-        child: CustomAppBar(),
+        child: CustomAppBar(title: "Calificanos"),
       ),
-
-      body: const Center(
-        child: Text(
-          "Resena",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
+      body: const GradientBackground(
+        child: Center(
+          child: Text(
+            "Resena",
+            style: TextStyle(color: Colors.white),
           ),
         ),
       ),
-
       bottomNavigationBar: const Bottombar(),
     );
   }

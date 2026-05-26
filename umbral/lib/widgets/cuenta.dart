@@ -11,19 +11,17 @@ class Cuenta extends StatelessWidget {
 
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(64),
-        child: CustomAppBar(),
+        child: CustomAppBar(title: "Cuenta"),
       ),
 
-      body: const Center(
-        child: Text(
-          "Cuenta",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
+      body: const GradientBackground(
+        child: Center(
+          child: Text(
+            "Cuenta",
+            style: TextStyle(color: Colors.white),
           ),
         ),
       ),
-
       bottomNavigationBar: const Bottombar(),
     );
   }
