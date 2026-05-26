@@ -259,13 +259,18 @@ class PodcastCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Icon(
+                  Icons.fast_rewind,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                Icon(
                   Icons.play_arrow,
                   color: Colors.white,
                   size: 20,
                 ),
 
                 Icon(
-                  Icons.favorite_border,
+                  Icons.fast_forward,
                   color: Colors.white,
                   size: 20,
                 ),
