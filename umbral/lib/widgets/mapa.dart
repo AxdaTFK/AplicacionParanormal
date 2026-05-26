@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
 
-class Videos extends StatelessWidget {
-  const Videos({super.key});
+class Mapa extends StatelessWidget {
+  const Mapa({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class Videos extends StatelessWidget {
 
       body: const Center(
         child: Text(
-          "Pantalla Videos",
+          "Mapa",
           style: TextStyle(
             color: Colors.white,
             fontSize: 24,
