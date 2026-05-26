@@ -11,12 +11,21 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+<<<<<<< HEAD
         body: Home(),
+=======
+        body: const Center(
+          child: Text('Home'),
+        ),
+
+        bottomNavigationBar: Bottombar(),
+>>>>>>> main
       ),
     );
   }
 }
 
+<<<<<<< HEAD
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -1276,3 +1285,29 @@ class Home extends StatelessWidget {
     );
   }
 }
+=======
+class Bottombar extends StatelessWidget {
+  const Bottombar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 80,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      color: Colors.black,
+
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Icon(Icons.home, color: Colors.white, size: 32),
+          Icon(Icons.search, color: Colors.white, size: 32),
+          Icon(Icons.favorite, color: Colors.white, size: 32),
+          Icon(Icons.person, color: Colors.white, size: 32),
+          Icon(Icons.settings, color: Colors.white, size: 32),
+        ],
+      ),
+    );
+  }
+}
+>>>>>>> main
