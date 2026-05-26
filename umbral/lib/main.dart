@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'widgets/videos.dart';
+import 'widgets/crear.dart';
+import 'widgets/cuenta.dart';
+import 'widgets/mapa.dart';
 
 void main() {
   runApp(const MainApp());
@@ -16,13 +19,75 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.grey[900],
 
-        body: const SafeArea(
-          child: SingleChildScrollView(
-            child: Frame33(),
-          ),
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(64),
+          child: CustomAppBar(),
         ),
 
+        body: const SingleChildScrollView(child: Frame33()),
+
         bottomNavigationBar: const Bottombar(),
+      ),
+    );
+  }
+}
+
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 64,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      color: Colors.black,
+
+      child: Row(
+        children: [
+          IconButton(
+            onPressed: () {},
+
+            icon: const Icon(
+              Icons.menu,
+              color: Colors.white,
+              size: 28,
+            ),
+          ),
+
+          const Expanded(
+            child: Text(
+              "Home",
+              textAlign: TextAlign.center,
+
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+
+          Container(
+            width: 40,
+            height: 40,
+
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+
+              image: const DecorationImage(
+                image: NetworkImage(
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJD0biXKfRJ_mccap0d2Y3rdtobjxsUlDWsQ&s",
+                ),
+                fit: BoxFit.cover,
+              ),
+
+              border: Border.all(
+                color: Colors.white,
+                width: 1,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -40,10 +105,19 @@ class Bottombar extends StatelessWidget {
 
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+
         children: [
 
+          // HOME
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MainApp(),
+                ),
+              );
+            },
 
             icon: const Icon(
               Icons.home,
@@ -70,7 +144,14 @@ class Bottombar extends StatelessWidget {
           ),
 
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Crear(),
+                ),
+              );
+            },
 
             icon: const Icon(
               Icons.add_circle,
@@ -80,7 +161,14 @@ class Bottombar extends StatelessWidget {
           ),
 
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Mapa(),
+                ),
+              );
+            },
 
             icon: const Icon(
               Icons.location_on,
@@ -90,7 +178,14 @@ class Bottombar extends StatelessWidget {
           ),
 
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Cuenta(),
+                ),
+              );
+            },
 
             icon: const Icon(
               Icons.person,
@@ -121,12 +216,7 @@ class Frame33 extends StatelessWidget {
 
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Row(
-              children: List.generate(
-                6,
-                (index) => const NewsCard(),
-              ),
-            ),
+            child: Row(children: List.generate(6, (index) => const NewsCard())),
           ),
 
           const SizedBox(height: 30),
@@ -138,10 +228,7 @@ class Frame33 extends StatelessWidget {
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: List.generate(
-                6,
-                (index) => const PodcastCard(),
-              ),
+              children: List.generate(6, (index) => const PodcastCard()),
             ),
           ),
 
@@ -156,13 +243,12 @@ class Frame33 extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 6,
 
-            gridDelegate:
-                const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                  childAspectRatio: 1.2,
-                ),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+              childAspectRatio: 1.2,
+            ),
 
             itemBuilder: (context, index) {
               return const StoryCard();
@@ -177,10 +263,7 @@ class Frame33 extends StatelessWidget {
 class SectionTitle extends StatelessWidget {
   final String title;
 
-  const SectionTitle({
-    super.key,
-    required this.title,
-  });
+  const SectionTitle({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -213,10 +296,7 @@ class NewsCard extends StatelessWidget {
       child: const Center(
         child: Text(
           "News",
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.w300,
-          ),
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
         ),
       ),
     );
@@ -258,17 +338,10 @@ class PodcastCard extends StatelessWidget {
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Icon(
-                  Icons.play_arrow,
-                  color: Colors.white,
-                  size: 20,
-                ),
+                Icon(Icons.fast_rewind, color: Colors.white, size: 20),
+                Icon(Icons.play_arrow, color: Colors.white, size: 20),
 
-                Icon(
-                  Icons.favorite_border,
-                  color: Colors.white,
-                  size: 20,
-                ),
+                Icon(Icons.fast_forward, color: Colors.white, size: 20),
               ],
             ),
           ),
@@ -297,10 +370,7 @@ class StoryCard extends StatelessWidget {
           Text(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 10,
-              color: Colors.black,
-            ),
+            style: TextStyle(fontSize: 10, color: Colors.black),
           ),
         ],
       ),
