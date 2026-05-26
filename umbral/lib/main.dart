@@ -14,7 +14,6 @@ class MainApp extends StatelessWidget {
         body: const Center(
           child: Text('Home'),
         ),
-
         bottomNavigationBar: Bottombar(),
       ),
     );
@@ -36,10 +35,10 @@ class Bottombar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Icon(Icons.home, color: Colors.white, size: 32),
-          Icon(Icons.search, color: Colors.white, size: 32),
-          Icon(Icons.favorite, color: Colors.white, size: 32),
+          Icon(Icons.video_library, color: Colors.white, size: 32),
+          Icon(Icons.add_circle, color: Colors.white, size: 32),
+          Icon(Icons.add_location, color: Colors.white, size: 32),
           Icon(Icons.person, color: Colors.white, size: 32),
-          Icon(Icons.settings, color: Colors.white, size: 32),
         ],
       ),
     );
