@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/videos.dart';
 
 void main() {
   runApp(const MainApp());
@@ -37,14 +38,66 @@ class Bottombar extends StatelessWidget {
       color: Colors.black,
       padding: const EdgeInsets.symmetric(horizontal: 20),
 
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Icon(Icons.home, color: Colors.white, size: 30),
-          Icon(Icons.video_library, color: Colors.white, size: 30),
-          Icon(Icons.add_circle, color: Colors.white, size: 30),
-          Icon(Icons.location_on, color: Colors.white, size: 30),
-          Icon(Icons.person, color: Colors.white, size: 30),
+
+          IconButton(
+            onPressed: () {},
+
+            icon: const Icon(
+              Icons.home,
+              color: Colors.white,
+              size: 30,
+            ),
+          ),
+
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Videos(),
+                ),
+              );
+            },
+
+            icon: const Icon(
+              Icons.video_library,
+              color: Colors.white,
+              size: 30,
+            ),
+          ),
+
+          IconButton(
+            onPressed: () {},
+
+            icon: const Icon(
+              Icons.add_circle,
+              color: Colors.white,
+              size: 30,
+            ),
+          ),
+
+          IconButton(
+            onPressed: () {},
+
+            icon: const Icon(
+              Icons.location_on,
+              color: Colors.white,
+              size: 30,
+            ),
+          ),
+
+          IconButton(
+            onPressed: () {},
+
+            icon: const Icon(
+              Icons.person,
+              color: Colors.white,
+              size: 30,
+            ),
+          ),
         ],
       ),
     );
