@@ -14,6 +14,7 @@ class MainApp extends StatelessWidget {
         body: const Center(
           child: Text('Home'),
         ),
+
         bottomNavigationBar: Bottombar(),
       ),
     );
