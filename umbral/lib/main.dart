@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'widgets/videos.dart';
-import 'widgets/crear.dart';
-import 'widgets/cuenta.dart';
-import 'widgets/mapa.dart';
+import 'screens/videos.dart';
+import 'screens/crear.dart';
+import 'screens/cuenta.dart';
+import 'screens/mapa.dart';
 
 void main() {
   runApp(const MainApp());
