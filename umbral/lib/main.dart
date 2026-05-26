@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'splash.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,6 +10,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< Updated upstream
     return MaterialApp(
       home: Scaffold(
 <<<<<<< HEAD
@@ -1311,3 +1313,11 @@ class Bottombar extends StatelessWidget {
   }
 }
 >>>>>>> main
+=======
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
+    );
+  }
+}
+>>>>>>> Stashed changes
