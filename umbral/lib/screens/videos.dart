@@ -60,7 +60,6 @@ class Videos extends StatelessWidget {
                       ),
                       padding: const EdgeInsets.symmetric(horizontal: 15),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.15),
                         color: Colors.white.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -107,7 +106,6 @@ class Videos extends StatelessWidget {
 
         /// OSCURECER
         Container(
-          color: Colors.black.withOpacity(0.2),
           color: Colors.black.withValues(alpha: 0.2),
         ),
 
